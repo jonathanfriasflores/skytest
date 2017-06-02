@@ -2,5 +2,15 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "usuarios": {
+    "host": "postgres://ekdlpwcmnlzvbd:dd327a3e65f078a2c7e70c377b379263c0839188eaad941d73a84296af9a32ba@ec2-23-23-234-118.compute-1.amazonaws.com:5432/d6me99pn67vmub",
+    "port": 5432,
+    "url": "",
+    "database": "d6me99pn67vmub",
+    "password": "dd327a3e65f078a2c7e70c377b379263c0839188eaad941d73a84296af9a32ba",
+    "name": "usuarios",
+    "user": "ekdlpwcmnlzvbd",
+    "connector": "postgresql"
   }
 }
