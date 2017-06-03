@@ -1,5 +1,16 @@
-<head><title>LoopBack</title></head>
+<head><title>Skydrop find users</title></head>
+<script>
+function myMap() {
+var mapOptions = {
+    center: new google.maps.LatLng(51.5, -0.12),
+    zoom: 10,
+    mapTypeId: google.maps.MapTypeId.HYBRID
+}
+var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
 <body>
-    <h1>LoopBack Rocks!</h1>
-    <p>Hello World... </p>
+    <div id="map"></div>
+
 </body>
