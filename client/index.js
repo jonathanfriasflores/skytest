@@ -1,3 +1,4 @@
+var markers = [];
 function myMap() {
 var map = new google.maps.Map(document.getElementById("map"), {
 	center: new google.maps.LatLng(25, -100),
@@ -26,7 +27,14 @@ document.getElementById("findBtn").addEventListener("click", function(event) {
 });
 }
 
+function removeMarkers(){
+  for(i=0; i<markers.length; i++){
+        markers[i].setMap(null);
+    }
+}
+
 function findUsersClick(map){
+  removeMarkers()
 	$.get("https://shrouded-woodland-11800.herokuapp.com/api/usuarios", function(data, status){
 		for(var i = 0; i<data.length; i++){
 			var usuario = data[i];
@@ -35,6 +43,7 @@ function findUsersClick(map){
 				map: map,
 				title: usuario.nombre
 			});
+      markers.push(marker);
 		}
 		$("#errorMessage").html('Hay '+data.length+' usuarios compartiendo ubicacion');
 	});
