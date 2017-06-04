@@ -27,9 +27,26 @@ document.getElementById("findBtn").addEventListener("click", function(event) {
 }
 
 function findUsersClick(map){
+	$.get("https://shrouded-woodland-11800.herokuapp.com/api/usuarios", function(data, status){
+		for(var i = 0; i<data.length; i++){
+			var usuario = data[i];
+			var marker = new google.maps.Marker({
+          		position: new google.maps.LatLng(usuario.ubicacion.lat, usuario.ubicacion.lng),
+				map: map,
+				title: usuario.nombre
+			});
+		}
+		$("#errorMessage").html('Hay '+data.length+' usuarios compartiendo ubicacion');
+	});
+
+	/*for(var i = 0; i<usuarios.length(), i++){
+		var usuario = usuarios[i];
+		console.log(usuario[0]);
+		console.log(usuario[1]);
+	}
 	var marker = new google.maps.Marker({
           position: new google.maps.LatLng(25.6775522, -100.354296),
           title: 'Hello World!'
         });
-	marker.setMap(map);
+	marker.setMap(map);*/
 }
